@@ -1,17 +1,19 @@
 {
   "name": "tech-blog",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "headless-test": "ng test --codeCoverage=true --watch=false --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "release-patch": "npm version patch --force -m 'application patch version is updated'",
+    "release-patch": "npm version patch --force -m 'Upgraded to %s'",
     "release": "node release-manager.js",
     "doc": "npx compodoc -p tsconfig.app.json && npx compodoc -s -r 9000",
-    "localcommit": "npm run lint && ng test --codeCoverage=true --watch=false --browsers ChromeHeadless && npm run release-patch && npx git-cz"
+    "precommit": "npm run lint && npm run headless-test",
+    "commit": "npm run release-patch && npx git-cz"
   },
   "private": true,
   "dependencies": {
