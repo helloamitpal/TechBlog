@@ -13,7 +13,7 @@ cliSelect({
   }
 }).then(function(resp) {
   console.log(chalk.green(resp.value + ' release is selected'));
-  exec('npm version '+resp.value.toLowerCase()+' --force -m');
+  exec('npm version '+resp.value.toLowerCase()+' --force --no-git-tag-version && git add package.json package-lock.json');
 }, function() {
   console.log(chalk.red('Failed to update application version'));
 });
