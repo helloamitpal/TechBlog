@@ -1,6 +1,6 @@
 {
   "name": "tech-blog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "release-patch": "npm version patch --force -m 'application patch version is updated'",
     "release": "node release-manager.js",
     "doc": "npx compodoc -p tsconfig.app.json && npx compodoc -s -r 9000",
-    "localcommit": "npm run lint && ng test --codeCoverage=true --watch=false && npm run release-patch && npx git-cz"
+    "localcommit": "npm run lint && ng test --codeCoverage=true --watch=false --browsers ChromeHeadless && npm run release-patch && npx git-cz"
   },
   "private": true,
   "dependencies": {
