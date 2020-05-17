@@ -6,14 +6,14 @@ cliSelect({
   values: ['Major', 'Minor', 'Patch'],
   valueRenderer: function (value, selected) {
     if (selected) {
-      return chalk.underline(value);
+      return chalk.bold(chalk.yellow(value));
     }
 
     return value;
   }
 }).then(function(resp) {
-  console.log(resp.value + 'release is selected');
+  console.log(chalk.green(resp.value + ' release is selected'));
   exec('npm version '+resp.value.toLowerCase()+' --force -m "application version is updated"');
 }, function() {
-  console.log('Failed to execute');
+  console.log(chalk.red('Failed to update application version'));
 });

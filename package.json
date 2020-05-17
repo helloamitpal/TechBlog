@@ -1,6 +1,6 @@
 {
   "name": "tech-blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,9 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "release-patch": "npm version patch --force -m 'application patch version is updated'",
+    "release": "node release-manager.js",
     "doc": "npx compodoc -p tsconfig.app.json && npx compodoc -s -r 9000",
-    "localcommit": "npm run lint && node release-manager.js && npx git-cz",
-    "prodcommit": "npm run test && npm run e2e && node release-manager.js && npm run build"
+    "localcommit": "npm run lint && ng test --codeCoverage=true --watch=false && npm run release-patch && npx git-cz"
   },
   "private": true,
   "dependencies": {
@@ -40,7 +41,6 @@
     "child_process": "^1.0.2",
     "cli-select": "^1.1.2",
     "codelyzer": "^5.1.2",
-    "figures": "^3.2.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~5.0.0",
