@@ -1,6 +1,6 @@
 {
   "name": "tech-blog",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "headless-test": "ng test --codeCoverage=true --watch=false --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "release-patch": "npm version patch --force -m 'Upgraded to %s'",
+    "release-patch": "npm version patch --force",
     "release": "node release-manager.js",
     "doc": "npx compodoc -p tsconfig.app.json && npx compodoc -s -r 9000",
     "precommit": "npm run lint && npm run headless-test",
